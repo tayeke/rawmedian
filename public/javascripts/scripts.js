@@ -66,7 +66,7 @@ $(function() {
   $('#contact').submit(function(e){
     e.preventDefault();
     var message = $('#message').val();
-    var email = $('#email').val();
+    var email = $('#from').val();
     if(message.length > 20) {
       sendMail(message,email);  
     }
