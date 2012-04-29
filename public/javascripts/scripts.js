@@ -88,8 +88,7 @@ function sendMail(_message,_from) {
   var subject = "Email from rawmedian.com";
   $.ajax({
     type: 'POST',
-    dataType: 'jsonp',
-    url: 'http://betterthanmediocre.com/mailers/generic_mailer.php?callback=?',
+    url: 'http://betterthanmediocre.com/mailers/generic_mailer.php',
     data: {to: to, subject: subject, message: _message, from: _from},
     success: function() {
         $('#sendMessage').val('Message Sent').css('background-color', '#0F0');
