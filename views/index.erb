@@ -10,7 +10,6 @@
     <meta property="og:title" content="culex">
     <meta property="og:description" content="When thoughts become reality, a young man takes control of his fate.   Written &amp; Directed by Tony Fabro VFX by Andrew McCall Cole Vigue- The Suit Brian Cyburt- The Shirt © 2012 RAW MEDIAN">
     <meta property="og:url" content="http://vimeo.com/41172201">
-    <meta property="og:count" content="43">
     <meta property="og:image" content="http://b.vimeocdn.com/ts/285/003/285003890_640.jpg">
     <meta property="og:video" content="http://vimeo.com/moogaloop.swf?clip_id=41172201">
     <meta property="og:video:secure_url" content="https://vimeo.com/moogaloop.swf?clip_id=41172201">
@@ -50,7 +49,22 @@
 					</a>
 				</div>
 				<div id="work" class="page">
-
+					<div id="videos">
+						<% @videos.each_with_index do |video,i| %>
+						<div class="video">
+							<a rel="<%= i %>" href="#vid" class="thumb">
+								<img src="<%= video['thumbnail_medium'] %>" />
+								<div class="play-button-wrapper">
+									<div class="play-button"></div>
+								</div>
+							</a>
+							<h4><%= video['title'] %></h4>
+						</div>
+						<% end %>
+						<div id="modal">
+							<div id="videoPlayer"><iframe id="videoPlayer" width="640" height="360" frameborder="0" href="http://player.vimeo.com/video/39182679"></iframe></div>
+						</div>
+					</div>
 				</div>
 				<div id="contact" class="page">
 					<h2>Have a question?</h2>
@@ -74,7 +88,9 @@
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script type="text/javascript">
 		<% if @id %>
+			var vid_id = '<%= @id %>';
 		<% end %>
+		var videos = <%= @videos.to_json %>;
 		</script>
 		<script type="text/javascript" src="/javascripts/scripts.js"></script>
 	</body>

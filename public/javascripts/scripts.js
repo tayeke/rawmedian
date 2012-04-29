@@ -17,7 +17,23 @@ $(function() {
   
   $('.anchored').click(function(me) {
     me.preventDefault();
+    $('#modal').fadeOut(150);
     goToByScroll($(this).attr('href'));
+  });
+
+  $('.thumb').hover(function() {
+    $(this).children('.play-button-wrapper').stop(true,true).fadeIn(350);
+  }, function() {
+    $(this).children('.play-button-wrapper').stop(true,true).fadeOut(350);
+  });
+
+  $('.thumb').click(function(){
+    var data = videos[$(this).attr('rel')];
+    var player = "http://player.vimeo.com/video/"+data['id'];
+    var frame = $('<iframe id="videoPlayer" width="640" height="360" frameborder="0">');
+    frame.attr('href', player);
+    $('#videoPlayer').append(frame);
+    $('#modal').fadeIn(250);
   });
 
 });
