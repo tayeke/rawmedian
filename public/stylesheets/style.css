@@ -1,33 +1,173 @@
 body {
 	background-color: #111;
 	text-shadow: 0 0 1px #111;
-	color: #DDD;
+	color: #CCC;
 	font-family: 'PlayRegular', 'arial', sans-serif;
 	font-size: 21px;
-	padding: 250px 25px 0 25px;
 }
 em {
 	font-family: 'PlayBold', 'PlayRegular', 'arial', sans-serif;
 	text-transform: uppercase;
 }
-h1,h2,h3,h4,h5,h6 {
-	font-family: 'Molot', 'PlayRegular', 'arial', sans-serif;
-	/*text-shadow: -1px -1px #111, 1px 1px #FFF;*/
-}
 h1 {
-	font-size: 72px;
+	font-family: 'Molot', 'PlayRegular', 'arial', sans-serif;
+	background-color: #069;
+	text-shadow: 0 0 1px #069;
+	letter-spacing: 5px;
+	padding: 35px 10px;
+	font-size: 36px;
+	color: #CCC;
 }
 p {
 	line-height: 28px;
 	padding: 10px;
 }
 
-/*page one*/
-#pg1 {
-	width: 960px;
+a {
+	text-decoration: none;
+	color: #444;
+	outline: none;
 }
-#pg1 h1 {
-	float: left;
-	padding-right: 25px;
-	height: 300px;
+
+hr {
+	margin-bottom: 20px;
+	background-color: #333;
+	color: #444;
+	border: 1px dashed #000;
+	height: 2px;
 }
+
+#sidebar {
+	position: fixed;
+	background: url('/img/stripes_light.png') repeat 0 0 transparent;
+	width: 175px;
+	height: 100%;
+	color: #444;
+}
+
+#sidebar ul {
+	padding: 25px 0 0 15px;
+}
+
+#sidebar ul li a.active {
+	color: #CCC;
+}
+
+#mainWrapper {
+	position: absolute;
+	left: 175px;
+	width: 100%;
+	overflow: hidden;
+}
+
+#content {
+	margin: 0 auto;
+	max-width: 1024px;
+	text-align: center;
+	padding-right: 175px;
+	margin-bottom: 60px;
+}
+
+.page {
+	display: none;
+}
+
+#tagline {
+	font-size: 56px;
+	line-height: 56px;
+	font-family: 'PlayBold', 'PlayRegular', 'arial', sans-serif;
+	text-transform: uppercase;
+	margin-top: 15%;
+	color: #444;
+}
+	#tagline em {
+		color: #069;
+	}
+#secondTagline {
+	font-size: 30px;
+	line-height: 31px;
+	text-transform: uppercase;
+	margin-bottom: 25px;
+}
+
+#continue {
+}
+
+form {
+	width: 450px;
+	margin: 0 auto;
+}
+form div {
+	clear: both;
+	overflow: hidden;
+	width: 450px;
+	text-align: right;
+}
+form div input, form div textarea {
+	float: right;
+	width: 300px;
+	margin-left: 20px;
+	margin-bottom: 8px;
+}
+
+textarea {
+	height: 200px;
+}
+
+input[type='submit'] {
+	background-color: #069;
+	border: 1px solid #369;
+	color: #CCC;
+	font-family: 'PlayBold', 'PlayRegular', 'arial', sans-serif;
+	text-transform: uppercase;
+	font-size: 24px;
+	cursor: pointer;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+	input[type='submit']:hover {
+		border-color: #CCC;
+	}
+
+#contact h2 {
+	font-size: 48px;
+	margin-bottom: 50px;
+	text-transform: uppercase;
+}
+
+.play-button-wrapper{
+	margin: 0 auto;
+	width: 60px;
+	height: 60px;
+	-webkit-border-radius: 120px;
+	-moz-border-radius: 120px;
+	border-radius: 120px;
+	background:#CCC;
+	position:relative;
+	overflow:hidden;
+	-moz-box-shadow: inset 0 0 10px #888;
+	-webkit-box-shadow: inset 0 0 10px#888;
+	box-shadow: inner 0 0 10px #888;
+	border:6px solid #444;
+	cursor:pointer;
+}
+ 
+.play-button {
+	width: 0;
+	height: 0;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-left: 20px solid #444;
+	position:absolute;
+	top:10px;
+	left:25px;
+	-moz-box-shadow: inset 0 0 5px 5px #888;
+	-webkit-box-shadow: inset 0 0 5px 5px#888;
+	box-shadow: inset 0 0 5px 5px #888;
+}
+ 
+.play-button-wrapper:hover .play-button {
+	border-left: 20px solid #787878;
+}
+
