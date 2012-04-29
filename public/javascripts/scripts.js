@@ -83,20 +83,24 @@ function closeModal() {
   });
 }
 
+var sent = false;
 function sendMail(_message,_from) {
-  var to = "tayloreke@gmail.com";
-  var subject = "Email from rawmedian.com";
-  $.ajax({
-    type: 'POST',
-    url: 'http://betterthanmediocre.com/mailers/generic_mailer.php',
-    data: {to: to, subject: subject, message: _message, from: _from},
-    success: function() {
-        $('#sendMessage').val('Message Sent').css('background-color', '#393');
-    },
-    error: function() {
-        alert('There was a problem sending your message. Please try again later or email us directly at '+to);
-    }
-  });
+  if(!sent) {
+    sent = true;
+    var to = "tayloreke@gmail.com";
+    var subject = "Email from rawmedian.com";
+    $.ajax({
+      type: 'POST',
+      url: 'http://betterthanmediocre.com/mailers/generic_mailer.php',
+      data: {to: to, subject: subject, message: _message, from: _from},
+      success: function() {
+          $('#sendMessage').val('Message Sent').css('background-color', '#393');
+      },
+      error: function() {
+          alert('There was a problem sending your message. Please try again later or email us directly at '+to);
+      }
+    });
+  }
 }
 
 function goToByScroll(_id) {
