@@ -33,7 +33,6 @@ end
 match '/vid/:id' do
   @id = params[:id]
   @video_data = video(@id)
-  puts @video_data
   erb :index
 end
 

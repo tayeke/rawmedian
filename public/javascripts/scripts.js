@@ -63,6 +63,18 @@ $(function() {
     $('#'+vid_id).click();
   }
 
+  $('#contact').submit(function(e){
+    e.preventDefault();
+    var message = $('#message').val();
+    var email = $('email').val();
+    if(message.length > 20) {
+      sendMail(message,email);  
+    }
+    else {
+      alert('We require a longer message, keep typing.');
+    }
+  });
+
 });
 
 function closeModal() {
@@ -72,7 +84,7 @@ function closeModal() {
 }
 
 function sendMail(_message,_from) {
-  var to = "";
+  var to = "tayloreke@gmail.com";
   var subject = "Email from rawmedian.com";
   $.ajax({
     type: 'POST',

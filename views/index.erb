@@ -72,13 +72,13 @@
 				</div>
 				<div id="contact" class="page">
 					<h2>Have a question?</h2>
-					<form>
+					<form action="#none">
 						<div>
 							<label for="from">Your Email: </label>
-							<input type="email" id="from" required />
+							<input type="email" id="from" required="required"/>
 						</div>
 						<div>
-							<label for="message" required >Inquiry: </label>
+							<label for="message" required="required">Inquiry: </label>
 							<textarea id="message"></textarea>
 						</div>
 						<div>
@@ -108,6 +108,8 @@
 		<script type="text/javascript">
 		<% if @id %>
 			var vid_id = '<%= @id %>';
+		<% else %>
+			var vid_id = null;
 		<% end %>
 		var videos = <%= @videos.to_json %>;
 		</script>
