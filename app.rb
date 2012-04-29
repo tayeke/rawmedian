@@ -32,6 +32,8 @@ end
 
 match '/vid/:id' do
   @id = params[:id]
+  @video_data = video(@id)
+  puts @video_data
   erb :index
 end
 
@@ -45,7 +47,7 @@ def video _id
     REDIS.set(_id, video.to_json)
     REDIS.expire(_id, 43200)
   end
-  return JSON.parse(REDIS.get(_id))
+  return JSON.parse(REDIS.get(_id))[0]
 end
 
 def videos

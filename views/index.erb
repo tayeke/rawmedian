@@ -7,12 +7,12 @@
 		<% if @id %>
 		<meta property="og:site_name" content="Raw Median">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="culex">
-    <meta property="og:description" content="When thoughts become reality, a young man takes control of his fate.   Written &amp; Directed by Tony Fabro VFX by Andrew McCall Cole Vigue- The Suit Brian Cyburt- The Shirt © 2012 RAW MEDIAN">
-    <meta property="og:url" content="http://vimeo.com/41172201">
-    <meta property="og:image" content="http://b.vimeocdn.com/ts/285/003/285003890_640.jpg">
-    <meta property="og:video" content="http://vimeo.com/moogaloop.swf?clip_id=41172201">
-    <meta property="og:video:secure_url" content="https://vimeo.com/moogaloop.swf?clip_id=41172201">
+    <meta property="og:title" content="<%= @video_data['title'] %>">
+    <meta property="og:description" content="<%= @video_data['description'] %>">
+    <meta property="og:url" content="http://rawmedian.com/vid/<%= @video_data['id'] %>">
+    <meta property="og:image" content="<%= @video_data['thumbnail_large'] %>">
+    <meta property="og:video" content="http://vimeo.com/moogaloop.swf?clip_id=<%= @video_data['id'] %>">
+    <meta property="og:video:secure_url" content="https://vimeo.com/moogaloop.swf?clip_id=<%= @video_data['id'] %>">
     <meta property="og:video:type" content="application/x-shockwave-flash">
     <meta property="og:video:width" content="640">
     <meta property="og:video:height" content="360">
@@ -52,7 +52,7 @@
 					<div id="videos">
 						<% @videos.each_with_index do |video,i| %>
 						<div class="video">
-							<a rel="<%= i %>" href="#vid" class="thumb">
+							<a rel="<%= i %>" id="<%= video['id'] %>" href="#vid" class="thumb">
 								<img src="<%= video['thumbnail_medium'] %>" />
 								<div class="play-button-wrapper">
 									<div class="play-button"></div>
@@ -62,7 +62,11 @@
 						</div>
 						<% end %>
 						<div id="modal">
-							<div id="videoPlayer"><iframe id="videoPlayer" width="640" height="360" frameborder="0" href="http://player.vimeo.com/video/39182679"></iframe></div>
+							<div id="videoInfo">
+								<h4></h4>
+								<p class="description"></p>
+							</div>
+							<div id="videoPlayer"></div>
 						</div>
 					</div>
 				</div>
@@ -85,6 +89,21 @@
 			</div>
 		</div>
 
+		<div id="fb-root"></div>
+		<script type="text/javascript">
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=377450545631217";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script type="text/javascript">
 		<% if @id %>

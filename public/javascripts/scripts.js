@@ -29,14 +29,47 @@ $(function() {
 
   $('.thumb').click(function(){
     var data = videos[$(this).attr('rel')];
-    var player = "http://player.vimeo.com/video/"+data['id'];
-    var frame = $('<iframe id="videoPlayer" width="640" height="360" frameborder="0">');
-    frame.attr('href', player);
+    var player = "http://player.vimeo.com/video/"+data['id']+"?autoplay=1&amp;portrait=0&amp;byline=0&amp;title=0&amp;color=006699";
+    var frame = $('<iframe width="720" height="405" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
+    frame.attr('src', player);
     $('#videoPlayer').append(frame);
-    $('#modal').fadeIn(250);
+    $('#videoInfo h4').html(data['title']);
+    $('#videoInfo p.description').html(data['description']);
+
+    //social stuff
+    var social = $('<div id="socialBtns"></div>');
+    social.append($('<div class="fb-like" data-href="http://rawmedian.com/vid/'+data['id']+'" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false" data-colorscheme="dark"></div>'));
+    social.append($('<div class="g-plusone" data-href="http://rawmedian.com/vid/'+data['id']+'"></div>'));
+    $('#videoPlayer').append(social);
+    $('#modal').fadeIn(250, function() {
+      FB.XFBML.parse();
+      gapi.plusone.go();
+    });
   });
 
+  $(document).keyup(function(e){
+      if(e.which == 27){
+          closeModal();
+      }
+  });
+
+  $(document).click(function(e) {
+    if (e.target == $('#modal')[0]) {
+      closeModal();
+    }
+  });
+
+  if(vid_id) {
+    $('#'+vid_id).click();
+  }
+
 });
+
+function closeModal() {
+  $('#modal').fadeOut(200, function() {
+    $('#videoPlayer').html('');
+  });
+}
 
 function sendMail(_message,_from) {
   var to = "";
