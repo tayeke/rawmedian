@@ -91,7 +91,7 @@ function sendMail(_message,_from) {
     url: 'http://betterthanmediocre.com/mailers/generic_mailer.php',
     data: {to: to, subject: subject, message: _message, from: _from},
     success: function() {
-        $('#sendMessage').val('Message Sent').css('background-color', '#0F0');
+        $('#sendMessage').val('Message Sent').css('background-color', '#393');
     },
     error: function() {
         alert('There was a problem sending your message. Please try again later or email us directly at '+to);
