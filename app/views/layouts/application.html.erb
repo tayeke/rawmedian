@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <title>rawmedian</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="<%= body_id %>">
+
+  <%= yield %>
+
+<script>
+  var globals = {
+    
+  };
+</script>
+<%= javascript_include_tag "application" %>
+</body>
+</html>
