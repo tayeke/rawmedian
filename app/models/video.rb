@@ -23,7 +23,7 @@ class Video < ActiveRecord::Base
   end
 
   def tag_ids=(tags)
-    #validate if it's a new tag by not being integer
+    #validate if it's a new tag by not being digit
     new_tags = tags.select {|t| (t =~ /^\d/).nil? && !t.empty? }
     old_tags = tags.select {|t| !(t =~ /^\d/).nil? && !t.empty? }
     new_tags.collect! {|t| (Tag.find_or_create_by_title(:title => t).id) || nil}
