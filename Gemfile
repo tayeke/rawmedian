@@ -15,6 +15,7 @@ end
 
 gem 'turbolinks'
 gem 'activeadmin'
+gem 'friendly_id'
 
 gem 'awesome_print'
 

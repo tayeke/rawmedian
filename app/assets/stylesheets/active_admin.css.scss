@@ -10,6 +10,7 @@
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
+@import "chosen";
 
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
@@ -27,3 +28,26 @@
 // .active_admin       applies to any Active Admin namespace
 // .admin_namespace    applies to the admin namespace (eg: /admin)
 // .other_namespace    applies to a custom namespace named other (eg: /other)
+
+.chzn-select {
+  width: 77.5% !important;
+}
+.chzn-container-multi .chzn-choices {
+  border: 1px solid #C9D0D6;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 0.95em;
+  font-family: Helvetica, Arial, sans-serif;
+  outline: none;
+  padding: 3px 10px 3px;
+}
+.chzn-container-multi .chzn-choices .search-field {
+  margin-left: 8px;
+}
+.chzn-container .chzn-results .no-results {
+  cursor: pointer;
+  &:hover {
+    background-color: #B2D0D4;
+  }
+}
