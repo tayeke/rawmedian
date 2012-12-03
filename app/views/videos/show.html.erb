@@ -1,8 +1,19 @@
 <% content_for :fb_meta do %>
+<meta property="og:type" content="video"/>
+<meta property="og:image" content="<%= @video.thumb %>"/>
+<meta property="og:video" content="https://vimeo.com/moogaloop.swf?clip_id=<%= @video.vimeo_id %>&amp;amp;server=vimeo.com&amp;amp;fullscreen=1&amp;amp;show_title=1&amp;amp;show_byline=0&amp;amp;show_portrait=0&amp;amp;color=377555" />
+<meta property="og:video:height" content="360" />
+<meta property="og:video:width" content="640" />
+<meta property="og:video:type" content="application/x-shockwave-flash" />
 <meta property="twitter:card" content="player" />
+<meta property="twitter:image" content="<%= @video.thumb %>" />
+<meta property="twitter:player" content="https://vimeo.com/moogaloop.swf?clip_id=<%= @video.vimeo_id %>&amp;amp;server=vimeo.com&amp;amp;fullscreen=1&amp;amp;show_title=1&amp;amp;show_byline=0&amp;amp;show_portrait=0&amp;amp;color=377555" />
+<meta name="twitter:player:width" value="400" />
+<meta name="twitter:player:height" value="300" />
+<meta property="twitter:url" content="<%= video_url @video %>" />
+<meta property="og:url" content="<%= video_url @video %>" />
 <meta property="og:image" content="<%= @video.thumb %>" />
 <meta property="og:title" content="<%= @video.title %>" />
-<meta property="og:url" content="<%= video_url @video %>" />
 <meta property="og:description" content="<%= @video.description %>" />
 <% end %>
 <section class="video">
