@@ -1,6 +1,6 @@
 class Video < ActiveRecord::Base
   extend FriendlyId
-  attr_accessible :description, :permalink, :title, :vimeo_id, :tag_ids
+  attr_accessible :description, :permalink, :title, :vimeo_id, :tag_ids, :thumb, :preview
   has_and_belongs_to_many :tags
   validates_uniqueness_of :vimeo_id, :permalink
   friendly_id :permalink, use: [:slugged, :history], slug_column: :permalink

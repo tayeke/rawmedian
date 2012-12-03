@@ -16,6 +16,8 @@ ActiveAdmin.register_page "Dashboard" do
               form_for(Video.new, :method => :post, :url => '/admin/videos') {|f| 
                 f.hidden_field(:title, :value => video['title']) 
                 f.hidden_field(:vimeo_id, :value => video['id']) 
+                f.hidden_field(:thumb, :value => video['thumbnail_medium']) 
+                f.hidden_field(:preview, :value => video['thumbnail_large']) 
                 f.hidden_field(:description, :value => video['description']) 
                 f.submit 'Add To Site'
               }

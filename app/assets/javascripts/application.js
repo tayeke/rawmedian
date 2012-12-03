@@ -15,5 +15,7 @@
 //= require turbolinks
 //= require plugins
 //= require app
-//= require home
+//= require blogs
+//= require videos
+//= require contact
 

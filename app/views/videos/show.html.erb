@@ -1,0 +1,35 @@
+<% content_for :fb_meta do %>
+<meta property="twitter:card" content="player" />
+<meta property="og:image" content="<%= @video.thumb %>" />
+<meta property="og:title" content="<%= @video.title %>" />
+<meta property="og:url" content="<%= video_url @video %>" />
+<meta property="og:description" content="<%= @video.description %>" />
+<% end %>
+<section class="video">
+  <aside class="video">
+    <h2><%= @video.title %></h2>
+    <!-- to get api later add api=1 and player_id= -->
+    <iframe src="http://player.vimeo.com/video/<%= @video.vimeo_id %>?title=0&byline=0&portrait=0&color=377555" width="533" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  </aside>
+  <aside class="videos">
+    <h3>other videos</h3>
+    <% @videos.each do |video| %>
+    <%= link_to video.title, video_url(video) %>
+    <% end %>
+  </aside>
+  <aside class="tags">
+    <h3>tags</h3>
+    <% @tags.each do |tag| %>
+    <%= link_to tag.title, videos_url(:tag => tag) %>
+    <% end %>
+  </aside>
+  <aside class="share">
+    <h3>share</h3>
+    <% unless TWEET_COPY.nil? %>
+    <%= link_to 'tweet', "//twitter.com/intent/tweet?url=#{uri_encode(video_url(@video))}&text=#{uri_encode(@video.title)}", :class => 'tweet-btn' %>
+    <% end %>
+    <% unless FB_ID.nil? %>
+    <%= link_to 'share', '', :class => 'fb-share-btn' %>
+    <% end %>
+  </aside>
+</section>
