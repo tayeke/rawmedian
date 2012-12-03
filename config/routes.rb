@@ -12,5 +12,6 @@ Rawmedian::Application.routes.draw do
 
   resources :videos
   resources :blogs
+  get '/blog' => 'blogs#index', :as => :blogs
   
 end
