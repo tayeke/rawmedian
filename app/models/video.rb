@@ -9,12 +9,16 @@ class Video < ActiveRecord::Base
   def self.vimeo_videos
     require 'net/http'
     require 'json'
-    account = Options.find_by_key(:vimeo_account).value
-    return false if !account or account.empty?
-    resp = Net::HTTP.get_response(URI.parse("http://vimeo.com/api/v2/#{account}/videos.json"))
-    data = resp.body
-    videos = JSON.parse(data)
-    return (videos.count < 1) ? false : videos
+    accounts = Options.find_by_key(:vimeo_account).value
+    return false if !accounts or accounts.empty?
+    results = []
+    accounts.split(',').each do |account|
+      resp = Net::HTTP.get_response(URI.parse("http://vimeo.com/api/v2/#{account}/videos.json"))
+      data = resp.body
+      videos = JSON.parse(data)
+      results |= videos
+    end
+    return (results.count < 1) ? false : results
   end
 
   def add_first_slug

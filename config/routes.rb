@@ -4,7 +4,6 @@ Rawmedian::Application.routes.draw do
 
   devise_for :videos, ActiveAdmin::Devise.config
 
-  ActiveAdmin.routes(self)
 
   root :to => 'videos#index'
 
@@ -13,5 +12,7 @@ Rawmedian::Application.routes.draw do
   resources :videos
   resources :blogs
   get '/blog' => 'blogs#index', :as => :blogs
+  
+  ActiveAdmin.routes(self)
   
 end

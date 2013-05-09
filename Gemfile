@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -14,7 +14,7 @@ group :production do
 end
 
 gem 'turbolinks'
-gem 'activeadmin'
+gem 'activeadmin', '~> 0.5.1'
 gem 'friendly_id'
 
 gem 'awesome_print'
@@ -29,6 +29,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'bourbon'
 end
 
 gem 'jquery-rails'

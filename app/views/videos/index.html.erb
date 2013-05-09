@@ -1,3 +1,25 @@
+<section id="intro">
+  <div class="featuring">
+    <div class="container">
+      <%= image_tag 'halo_example.png' %>
+      <%#= image_tag 'aperturegrunge.png' %>
+    </div>
+  </div>
+  <div class="container">
+    <h2><em>Visual Media</em> is the most powerful way for a business to gather attention</h2>
+  </div>
+</section>
+
+<%= render 'layouts/nav' %>
+
+<section id="videos" class="container">
 <% @videos.each do |video| %>
-  <%= link_to image_tag(video.thumb), video_url(video) %>
+  <%= content_tag :div, class: 'video_preview' do %>
+    <%= image_tag video.thumb, class: 'thumbnail' %>
+    <%= content_tag :div, class: 'details' do %>
+      <%= content_tag :p, video.title %>
+    <% end %>
+    <%= link_to '', video_path(video), class: 'video_link' %>
+  <% end %>
 <% end %>
+</section>

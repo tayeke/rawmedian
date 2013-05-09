@@ -14,19 +14,8 @@
 </head>
 <body id="<%= body_id %>">
 
-  <nav rol="main">
-    <%= link_to 'video',   videos_path %>
-    <%= link_to 'blog',    blogs_path %>
-    <%= link_to 'contact', contact_path %>
-    <% unless TWEET_COPY.nil? %>
-    <%= link_to 'tweet', "//twitter.com/intent/tweet?url=#{uri_encode(url_for(root_url))}&text=#{uri_encode(TWEET_COPY)}", :class => 'tweet-btn' %>
-    <% end %>
-    <% unless FB_ID.nil? %>
-    <%= link_to 'share', '', :class => 'fb-share-btn' %>
-    <% end %>
-  </nav>
-
   <%= yield %>
+  
 <script>
   var globals = {
     fbid: '<%= @fb_id %>'
