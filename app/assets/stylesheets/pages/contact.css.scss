@@ -1,0 +1,73 @@
+@import "constants";
+@import "bourbon";
+
+#contact {
+  overflow: hidden;
+  margin-top: 25px;
+  background: $grey;
+  background: rgba($grey, 0.8);
+  padding: 30px 0 80px 0;
+  h2 {
+    color: $blue;
+    font-family: $gothicRegular;
+    font-size: em(42);
+    text-transform: uppercase;
+  }
+  .column_3 {
+    float: left;
+    overflow: hidden;
+    width: 30%;
+    margin-right: 5%;
+    &.right {
+      float: right;
+      margin-right: 0;
+    }
+  }
+  ul {
+    list-style-type: circle;
+    list-style-position: inside;
+    li {
+      padding: 3px 0;
+      a {
+        color: $red;
+      }
+    }
+  }
+}
+#contactForm {
+  input[type="text"], input[type="email"] {
+    clear: both;
+    width: 95%;
+    border: none;
+    padding: 8px;
+    @include border-top-radius(8px);
+    background: rgba($white, 0.9);
+  }
+  textarea {
+    clear: both;
+    width: 95%;
+    resize: none;
+    border: none;
+    padding: 8px;
+    height: 100px;
+    background: rgba($white, 0.9);
+  }
+  input[type="submit"] {
+    clear: both;
+    width: 99.7%;
+    border: none;
+    padding: 8px;
+    background: rgba($black, 0.9);
+    color: $white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: em(16);
+    cursor: pointer;
+    margin: 0;
+    @include transition(background, 1s);
+    @include border-bottom-radius(8px);
+    &:hover {
+      background: rgba($black, 0.6);
+    }
+  }
+}

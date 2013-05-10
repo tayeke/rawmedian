@@ -3,7 +3,8 @@ class VideosController < ApplicationController
   # GET /videos.json
   def index
     if params[:tag]
-      @videos = Tag.find(params[:tag]).videos
+      @tag = Tag.find(params[:tag])
+      @videos = @tag.videos
     else
       @videos = Video.all
     end

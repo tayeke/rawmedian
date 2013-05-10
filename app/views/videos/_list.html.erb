@@ -1,0 +1,11 @@
+<section id="videos" class="container">
+<% @videos.each do |video| %>
+  <%= content_tag :div, class: 'video_preview' do %>
+    <%= image_tag video.thumb, class: 'thumbnail' %>
+    <%= content_tag :div, class: 'details' do %>
+      <%= content_tag :p, video.title %>
+    <% end %>
+    <%= link_to '', video_path(video), class: 'video_link' %>
+  <% end %>
+<% end %>
+</section>

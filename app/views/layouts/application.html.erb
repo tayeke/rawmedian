@@ -15,12 +15,19 @@
 <body id="<%= body_id %>">
 
   <%= yield %>
-  
+
+  <footer id="contact">
+    <%= render 'pages/contact' %>
+  </footer>
+
 <script>
   var globals = {
     fbid: '<%= @fb_id %>'
   };
 </script>
+<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+<div id="fb-root"></div>
+<script type="text/javascript" src="//connect.facebook.net/en_US/all.js"></script>
 <%= javascript_include_tag "application" %>
 </body>
 </html>

@@ -16,31 +16,36 @@
 <meta property="og:title" content="<%= @video.title %>" />
 <meta property="og:description" content="<%= @video.description %>" />
 <% end %>
-<section class="video">
-  <aside class="video">
-    <h2><%= @video.title %></h2>
-    <!-- to get api later add api=1 and player_id= -->
-    <iframe src="http://player.vimeo.com/video/<%= @video.vimeo_id %>?title=0&byline=0&portrait=0&color=840002" width="533" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-  </aside>
-  <aside class="videos">
-    <h3>other videos</h3>
-    <% @videos.each do |video| %>
-    <%= link_to video.title, video_url(video) %>
-    <% end %>
-  </aside>
-  <aside class="tags">
-    <h3>tags</h3>
-    <% @tags.each do |tag| %>
-    <%= link_to tag.title, videos_url(:tag => tag) %>
-    <% end %>
-  </aside>
-  <aside class="share">
-    <h3>share</h3>
-    <% unless TWEET_COPY.nil? %>
-    <%= link_to 'tweet', "//twitter.com/intent/tweet?url=#{uri_encode(video_url(@video))}&text=#{uri_encode(@video.title)}", :class => 'tweet-btn' %>
-    <% end %>
-    <% unless FB_ID.nil? %>
-    <%= link_to 'share', '', :class => 'fb-share-btn' %>
-    <% end %>
-  </aside>
+<section id="video">
+  <div class="container">
+    <aside class="video">
+      <h2><%= @video.title %></h2>
+      <!-- to get api later add api=1 and player_id= -->
+      <iframe src="http://player.vimeo.com/video/<%= @video.vimeo_id %>?title=0&byline=0&portrait=0&color=840002" width="720" height="405" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    </aside>
+    <aside class="tags">
+      <p><%=raw @video.description %></p>
+      <% if @tags.count > 0 %>
+        <h3>tags</h3>
+        <div class="list">
+        <% @tags.each do |tag| %>
+          <%= link_to tag.title, videos_url(:tag => tag) %>
+        <% end %>
+        </div>
+      <% end %>
+    </aside>
+    <aside class="share">
+      <h3>share</h3>
+      <% unless TWEET_COPY.nil? %>
+      <%= link_to image_tag('twitter-icon-sm.png', height: 60), "//twitter.com/intent/tweet?url=#{uri_encode(video_url(@video))}&text=#{uri_encode(@video.title)}", :class => 'tweet-btn' %>
+      <% end %>
+      <% unless FB_ID.nil? %>
+      <%= link_to image_tag('fb-icon-sm.png', height: 60), '', class: 'fb-share-btn', data: {link: video_url(@video)} %>
+      <% end %>
+    </aside>
+  </div>
 </section>
+
+<%= render 'layouts/nav' %>
+
+<%= render 'videos/list' %>
