@@ -35,7 +35,7 @@ class App
   sendMail: (message, from) =>
     unless @mailsent
       @mailsent = true
-      to = "tayloreke@gmail.com"
+      to = "contact@rawmedian.com"
       subject = "Email from rawmedian.com"
       $.ajax
         type: 'POST'

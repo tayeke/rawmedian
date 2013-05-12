@@ -5,7 +5,7 @@ class ContactMailer < ActionMailer::Base
   def contact_email(message,from)
     @from = from
     @message = message
-    mail(to: Option.find_by_key(:email_address).value, from: from, subject: "Email from rawmedian.com")
+    mail(to: EMAIL_TO, from: from, subject: "Email from rawmedian.com")
   end
 
 end
