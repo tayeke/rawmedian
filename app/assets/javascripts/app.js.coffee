@@ -46,7 +46,8 @@ class App
           message: message
           from: from
         success: ->
-            alert 'Message Sent'
+            alert 'Message Sent, thank you for your interest'
+            $('#contactForm').find('input[type="text"],input[type="email"],textarea').val('')
         error: ->
             alert 'There was a problem sending your message. Please try again later or email us directly at '+to
 
