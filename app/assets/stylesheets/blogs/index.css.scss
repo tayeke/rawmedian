@@ -1,0 +1,69 @@
+@import "constants";
+@import "bourbon";
+
+.sidebar {
+  float: right;
+  width: 200px;
+  margin-top: 80px;
+  padding: 10px 30px;
+  border-top: 1px solid $black;
+  border-bottom: 1px solid $black;
+  @media (max-width: $tablet-tall) {
+    width: 100%;
+    float: none;
+    clear: both;
+  }
+  h3 {
+    // color: $red;
+    font-size: em(30);
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    font-family: $gothicRegular;
+  }
+  ul {
+    list-style-position: outside;
+    overflow: hidden;
+    li {
+      @media (max-width: $tablet-tall) {
+        float: left;
+      }
+      line-height: 0.9;
+      margin-bottom: 15px;
+      a {
+        font-family: $gothicItalic;
+        font-size: em(21);
+      }
+      span {
+        font-size: em(12);
+      }
+    }
+  }
+
+  // videos
+  #videos {
+    width: 200px;
+    margin-top: 0;
+    @media (max-width: $tablet-tall) {
+      width: 100%;
+    }
+    @media (max-width: $phone-tall) {
+      max-width: 320px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .video_preview {
+    width: 200px;
+    margin: 0;
+    float: none;
+    clear: both;
+    @media (max-width: $tablet-tall) {
+      float: left;
+      clear: none;
+    }
+    @media (max-width: $phone-tall) {
+      width: 48%;
+      margin: 0 2% 2% 0;
+    }
+  }
+}

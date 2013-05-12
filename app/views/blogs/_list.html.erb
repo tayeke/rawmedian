@@ -1,0 +1,11 @@
+<div class="sidebar">
+  <%= content_tag :h3, heading %>
+  <ul>
+  <% blogs.each do |blog| %>
+    <li>
+      <%= link_to blog.title, blog_path(blog) %> <br />
+      <%= content_tag :span, "posted #{time_ago_in_words(blog.created_at)} ago" %>
+    </li>
+  <% end %>
+  </ul>
+</div>

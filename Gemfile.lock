@@ -44,11 +44,22 @@ GEM
       activesupport (>= 3.0.0)
     arel (3.0.2)
     awesome_print (1.1.0)
+    aws-sdk (1.9.5)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     bcrypt-ruby (3.0.1)
     bourbon (3.1.6)
       sass (>= 3.2.0)
       thor
     builder (3.0.4)
+    ckeditor (4.0.4)
+      mime-types
+      orm_adapter
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.1)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -93,7 +104,14 @@ GEM
       polyamorous (~> 0.5.0)
     mime-types (1.23)
     multi_json (1.7.3)
+    nokogiri (1.5.9)
     orm_adapter (0.4.0)
+    paperclip (3.4.1)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
     pg (0.15.1)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
@@ -147,6 +165,7 @@ GEM
     uglifier (2.1.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    uuidtools (2.1.4)
     warden (1.2.1)
       rack (>= 1.0)
 
@@ -156,10 +175,13 @@ PLATFORMS
 DEPENDENCIES
   activeadmin (~> 0.5.1)
   awesome_print
+  aws-sdk
   bourbon
+  ckeditor
   coffee-rails (~> 3.2.1)
   friendly_id
   jquery-rails (~> 2.1.4)
+  paperclip
   pg
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)

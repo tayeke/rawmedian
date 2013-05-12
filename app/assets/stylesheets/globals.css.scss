@@ -71,7 +71,18 @@ a {
 
 .container {
   width: 1140px;
+  @media (max-width: $small-desktop) {
+    width: 960px;
+  }
+  @media (max-width: $tablet-wide) {
+    width: 100%;
+  }
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+}
+
+ul {
+  list-style-type: circle;
+  list-style-position: inside;
 }

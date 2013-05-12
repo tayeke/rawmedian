@@ -18,7 +18,28 @@
     color: $blue;
   }
   .video {
-    width: 720px;
+    @media (max-width: $tablet-wide) {
+      margin-left: 30px;
+    }
+    @media (max-width: $tablet-tall) {
+      margin-left: 3%;
+    }
+    .video_wrapper {
+      width: 720px;
+      height: 405px;
+      @media (max-width: $tablet-tall) {
+        width: 625px;
+        height: 450px;
+      }
+      @media (max-width: $phone-wide) {
+        width: 550px;
+        height: 310px;
+      }
+      @media (max-width: $phone-tall) {
+        width: 315px;
+        height: 177px;
+      }
+    }
     overflow: hidden;
     float: left;
     margin-bottom: 20px;
@@ -29,6 +50,11 @@
     float: right;
     margin-top: 32px;
     width: 390px;
+    @media (max-width: $phone-tall) {
+      width: 320px;
+      margin: 0 auto;
+      float: none;
+    }
     margin-bottom: 20px;
     p {
       line-height: 1.4;
@@ -52,16 +78,22 @@
     }
   }
   .share {
-    float: right;
+    float: left;
     overflow: hidden;
     margin-bottom: 20px;
-    width: 390px;
+    margin-left: 30px;
+    width: 150px;
     a img {
       opacity: 0.6;
       @include transition(opacity, 1s);
       &:hover {
         opacity: 1;
       }
+    }
+    @media (max-width: $phone-tall) {
+      width: 320px;
+      margin: 0 auto;
+      float: none;
     }
   }
   h3 {

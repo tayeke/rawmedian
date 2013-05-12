@@ -1,9 +1,11 @@
 class App
   constructor: (_options = {}) ->
     @[key] = val for key, val of _options 
+    @mailsent = false
     FB.init
       appId: @fbid
-      xfbml: true                                  
+      xfbml: true 
+      status: false                                 
   init: =>
     # globalized dom ready here
 
@@ -14,10 +16,39 @@ class App
     # start slideshow timer
     if @total_slides
       @$slides.eq(@current_slide-1).fadeIn(1200)
-      setInterval @nextSlide, 12000
+      clearInterval @slideTimer
+      @slideTimer = setInterval @nextSlide, 12000
 
-    #share button listener
+    # share button listener
     $('.fb-share-btn').click @shareClick
+
+    # contact form
+    $('#contactForm').submit (e) =>
+      e.preventDefault();
+      message = $('textarea[name="message"]').val();
+      email = $('input[name="from"]').val();
+      if message.length > 20
+        @sendMail message,email
+      else
+        alert 'We require a longer message, keep typing.'
+
+  sendMail: (message, from) =>
+    unless @mailsent
+      @mailsent = true
+      to = "tayloreke@gmail.com"
+      subject = "Email from rawmedian.com"
+      $.ajax
+        type: 'POST'
+        url: '/send_mail'
+        data: 
+          to: to
+          subject: subject
+          message: message
+          from: from
+        success: ->
+            alert 'Message Sent'
+        error: ->
+            alert 'There was a problem sending your message. Please try again later or email us directly at '+to
 
   nextSlide: =>
     @$slides.eq(@current_slide-1).fadeOut(1200)
@@ -31,7 +62,7 @@ class App
       method: 'feed'
       link: $item.data('link')
 
-@app = new App(globals)
+@app = new App(globals) unless @app
 
 $(app.init)
 

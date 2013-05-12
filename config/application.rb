@@ -58,5 +58,33 @@ module Rawmedian
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # zoho mail with actionmailer
+    ActionMailer::Base.delivery_method = :smtp  
+    ActionMailer::Base.smtp_settings = {            
+      :address              => "smtp.zoho.com", 
+      :port                 => 465,                 
+      :user_name            => 'taylor@rawmedian.com',
+      :password             => ENV['ZOHO_PASS'],         
+      :authentication       => :login,
+      :ssl                  => true,
+      :tls                  => true,
+      :enable_starttls_auto => true    
+    }
+
+    # s3 cred
+    config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+        :bucket => 'rawmedian',
+        :access_key_id => ENV['AWS_MY_ID'],
+        :secret_access_key => ENV['AWS_MY_KEY']
+      },
+      :s3_permissions => :public_read,
+      :url => ":s3_alias_url",
+      :s3_host_alias => "rawmedian.s3.amazonaws.com"
+    }
+
   end
+
 end

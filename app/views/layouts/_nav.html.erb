@@ -1,9 +1,15 @@
 <hr />
 
 <nav>
+  <% if params[:controller] == 'blogs' %>
+  <a href="<%= videos_path %>">
+    &laquo; Videos
+  </a>
+  <% else %>
   <a href="<%= blogs_path %>">
     &laquo; blog
   </a>
+  <% end %>
   <a href="<%= root_path %>" class="logo">
     Raw Median
   </a>

@@ -1,5 +1,14 @@
-<p id="notice"><%= notice %></p>
+<% content_for :fb_meta do %>
+<meta property="og:type" content="article"/>
+<meta property="twitter:url" content="<%= blog_url @blog %>" />
+<meta property="og:url" content="<%= blog_url @blog %>" />
+<meta property="og:title" content="<%= @blog.title %>" />
+<meta property="og:description" content="<%= @blog.snippet %>" />
+<% end %>
 
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<%= render 'layouts/nav' %>
+<div class="container">
+  <%= render 'blogs/single', {blog: @blog} %>
+  <%= render 'blogs/list', {heading: 'Recent awesomeness', blogs: @blogs} %>
+  <%= render 'videos/sidebar', {videos: @videos} %>
+</div>

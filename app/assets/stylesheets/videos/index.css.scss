@@ -28,6 +28,9 @@ em {
     background: rgba($grey,0.15);
     border-radius: 10px;
     padding: 8px;
+    @media (max-width: $phone-tall) {
+      font-size: em(26);
+    }
     em {
       color: $lightblue;
     }
@@ -42,6 +45,15 @@ em {
       position: relative;
       width: 1250px;
       height: 100%;
+      @media (max-width: $tablet-wide) {
+        width: 80%;
+      }
+      @media (max-width: $phone-wide) {
+        width: 85%;
+      }
+      @media (max-width: $phone-tall) {
+        width: 140%;
+      }
       margin: 0 auto;
       text-align: right;
       img {
@@ -59,6 +71,9 @@ nav {
   $navelements: 3;
   $navelementwidth: 250px;
   width: $navelements*$navelementwidth+$navelements*4px;
+  @media (max-width: $tablet-tall) {
+    width: 100%;
+  }
   margin: 0 auto;
   text-transform: uppercase;
   font-family: $gothicRegular;
@@ -67,6 +82,15 @@ nav {
   a {
     display: inline-block;
     width: $navelementwidth;
+    @media (max-width: $tablet-tall) {
+      width: $navelementwidth - 55px;
+    }
+    @media (max-width: $phone-tall) {
+      &:nth-child(2) {
+        float: right;
+      }
+      width: $navelementwidth - 100px;
+    }
     text-align: center;
     margin: 0;
     color: $black;
@@ -90,6 +114,14 @@ hr {
 #videos {
   overflow: hidden;
   margin-top: 45px;
+  @media (max-width: $tablet-wide) {
+    max-width: 454px;
+    margin: inherit auto;
+  }
+  @media (max-width: $phone-tall) {
+    max-width: 320px;
+    margin: inherit auto;
+  }
   .video_preview {
     position: relative;
     width: 200px;
@@ -97,6 +129,10 @@ hr {
     overflow: hidden;
     float: left;
     margin: 0 27px 25px 0;
+    @media (max-width: $phone-tall) {
+      width: 48%;
+      margin: 0 2% 2% 0;
+    }
     .thumbnail {
       position: relative;
     }
@@ -111,6 +147,9 @@ hr {
       background-color: rgba($red, 0.25);
       -webkit-backface-visibility: hidden;
       opacity: 0;
+      @media (max-width: $tablet-tall) {
+        opacity: 1;
+      }
       @include transition(opacity, 0.5s);
       p {
         padding: 6px 6px 12px;

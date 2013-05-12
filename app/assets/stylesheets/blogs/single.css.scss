@@ -1,0 +1,39 @@
+@import "constants";
+@import "bourbon";
+
+#blog {
+  margin-top: 25px;
+  max-width: 860px;
+  float: left;
+  @media (max-width: $small-desktop) {
+    max-width: 650px;
+  }
+  @media (max-width: $tablet-wide) {
+    max-width: 96%;
+    margin-left: 2%;
+  }
+  @media (max-width: $tablet-tall) {
+    width: 96%;
+    margin-left: 2%;
+    float: none;
+  }
+  .title_block {
+    margin-bottom: 25px;
+    h2 {
+      font-family: $gothicRegular;
+      font-size: em(42);
+    }
+  }
+  .content {
+    p {
+      padding: 10px 0;
+    }
+    img {
+      margin: 2%;
+      border-radius: 15px;
+      border: 8px solid rgba($grey, 0.6);
+      max-width: 94% !important;
+      height: auto !important;
+    }
+  }
+}

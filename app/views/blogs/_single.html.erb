@@ -1,0 +1,9 @@
+<div id="blog">
+  <div class="title_block">
+    <%= content_tag :h2, blog.title %>
+    <%= content_tag :p, "Posted #{time_ago_in_words(blog.created_at)} ago" %>
+  </div>
+  <div class="content">
+    <%=raw blog.body %>
+  </div>
+</div>

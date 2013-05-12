@@ -18,18 +18,30 @@
     overflow: hidden;
     width: 30%;
     margin-right: 5%;
+    @media (max-width: $tablet-wide) {
+      min-width: 45%;
+      margin-left: 2%;
+      margin-bottom: 20px;
+    }
+    @media (max-width: $tablet-tall) {
+      float: none !important;
+      clear: both;
+      margin-right: 0;
+      width: 96%;
+      margin-left: 2%;
+    }
     &.right {
       float: right;
       margin-right: 0;
     }
   }
   ul {
-    list-style-type: circle;
-    list-style-position: inside;
     li {
       padding: 3px 0;
       a {
         color: $red;
+        font-family: $gothicItalic;
+        font-size: em(24);
       }
     }
   }
@@ -55,6 +67,12 @@
   input[type="submit"] {
     clear: both;
     width: 99.7%;
+    @media (max-width: $tablet-tall) {
+      width: 97.7%;
+    }
+    @media (max-width: $phone-tall) {
+      width: 99.7%;
+    }
     border: none;
     padding: 8px;
     background: rgba($black, 0.9);

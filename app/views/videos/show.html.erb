@@ -21,7 +21,9 @@
     <aside class="video">
       <h2><%= @video.title %></h2>
       <!-- to get api later add api=1 and player_id= -->
-      <iframe src="http://player.vimeo.com/video/<%= @video.vimeo_id %>?title=0&byline=0&portrait=0&color=840002" width="720" height="405" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+      <div class="video_wrapper">
+        <iframe src="http://player.vimeo.com/video/<%= @video.vimeo_id %>?title=0&byline=0&portrait=0&color=840002" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+      </div>
     </aside>
     <aside class="tags">
       <p><%=raw @video.description %></p>
