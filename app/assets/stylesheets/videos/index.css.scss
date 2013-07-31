@@ -26,6 +26,9 @@ em {
     bottom: 5%;
     left: 0;
     background: rgba($grey,0.15);
+    @media (max-width: $phone-wide) {
+      background: rgba($grey,0.25);
+    }
     border-radius: 10px;
     padding: 8px;
     @media (max-width: $phone-tall) {
@@ -46,13 +49,14 @@ em {
       width: 1250px;
       height: 100%;
       @media (max-width: $tablet-wide) {
-        width: 80%;
+        width: 110%;
       }
       @media (max-width: $phone-wide) {
-        width: 85%;
+        width: 135%;
       }
       @media (max-width: $phone-tall) {
-        width: 140%;
+        width: 210%;
+        right: 25%;
       }
       margin: 0 auto;
       text-align: right;
